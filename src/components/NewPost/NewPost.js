@@ -8,7 +8,7 @@ class NewPost extends Component {
   state = {
       title: '',
       content: '',
-      author: 'Max'
+      author: 'Brad'
   }
 
   postDataHandler = () => {
@@ -42,6 +42,7 @@ class NewPost extends Component {
 
         <label>Author</label>
         <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
+            <option value="Brad">Brad</option>
             <option value="Max">Max</option>
             <option value="Manu">Manu</option>
         </select>
