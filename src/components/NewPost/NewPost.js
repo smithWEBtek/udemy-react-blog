@@ -7,25 +7,25 @@ const URL = 'http://jsonplaceholder.typicode.com'
 class NewPost extends Component {
   state = {
       title: '',
-      content: '',
+      body: '',
       author: 'Brad'
   }
 
   postDataHandler = () => {
-    const data = {
+    const postData = {
       title: this.state.title,
-      content: this.state.body,
+      body: this.state.content,
       author: this.state.author
     }
 
-    axios.post(`${URL}/posts`, data)
+  axios.post(`${URL}/posts`, postData)
     .then(response => {
       console.log('response data', response)
-      // this.setState({
-      //   title: response.data.title,
-      //   content: response.data.body,
-      //   author: response.data.author
-      // })
+      this.setState({
+        title: response.data.title,
+        content: response.data.body,
+        author: response.data.author
+      })
     })
   } 
 
