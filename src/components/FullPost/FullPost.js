@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './FullPost.css';
 
-const URL = 'http://jsonplaceholder.typicode.com'
-
 class FullPost extends Component {
   state = {
     loadedPost: null
@@ -12,7 +10,7 @@ class FullPost extends Component {
   componentDidUpdate(){
     if(this.props.id){
       if(!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)){
-        axios.get(`${URL}/posts/${this.props.id}`)
+        axios.get(`/posts/${this.props.id}`)
         .then(response => {
           this.setState({
             loadedPost: response.data 
@@ -23,7 +21,7 @@ class FullPost extends Component {
   }
 
   deletePostHandler = () => {
-    axios.delete(`${URL}/posts/${this.props.id}`)
+    axios.delete(`/posts/${this.props.id}`)
     .then(response => {
         console.log('delete response: ', response)
       })
