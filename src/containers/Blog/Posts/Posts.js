@@ -30,7 +30,9 @@ class Posts extends Component {
   }
 
   postSelectedHandler = (id) => {
-    this.setState({ selectedPostId: id });
+    // this.setState({ selectedPostId: id });
+    this.props.history.push({ pathname: '/' + id });
+    // this.props.history.push('/' + id);
   } 
 
   render() {
@@ -39,16 +41,17 @@ class Posts extends Component {
       posts = this.state.posts.map(post => {
 
         return (
-          <Link to={'/' + post.id} key={post.id}>
+          // <Link to={'/' + post.id} key={post.id}>
             <Post
+            key={post.id}
             id={post.id}
             title={post.title}
             author={post.author}
             // {...this.props}
             // match={this.props.match}
             clicked={() => this.postSelectedHandler(post.id)} />
-          </Link>);
-      });
+          // </Link>);
+      )});
     }
 
     return (
