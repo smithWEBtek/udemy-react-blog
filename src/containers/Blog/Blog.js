@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
+// import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
-import './Blog.css'; 
+import './Blog.css';
+import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
 
@@ -14,22 +16,31 @@ class Blog extends Component {
         <header>
           <nav>
             <ul>
-              <li><Link to="/" alt="home">Home</Link></li>
-              <li><Link to="/posts" alt="posts">Posts</Link></li>
-              <li><Link to={{
-                // pathname: '/new-post',
-                pathname: this.props.match.url + 'new-post',
+              <li><NavLink 
+                to="/" 
+                exact alt="home"
+                activeClassName="my-active"
+                activeStyle={{
+                  color: '#fa923f',
+                  textDecoration: 'underline'
+                }}
+                >Home</NavLink></li>
+              <li><NavLink to="/posts" exact alt="posts">Posts</NavLink></li>
+              <li><NavLink to={{
+                pathname: '/posts/new-post',
+                // pathname: this.props.match.url + 'new-post',
                 search: '?mrgoodbar',
                 hash: '#5'
-              }} alt="new-post">New Post</Link></li>
+              }} exact alt="new-post">New Post</NavLink></li>
  
             </ul>
           </nav>
         </header>
         <hr />
         <Route path="/" exact />
-        <Route path="/posts" exact component={Posts} />
-        <Route path="/new-post" component={NewPost} />
+        <Route path="/posts" component={Posts} />
+        <Route path="/posts/new-post" component={NewPost} />
+        <Route path="/:id" exact component={FullPost} />
       </div>
       );
     }

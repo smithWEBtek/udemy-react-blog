@@ -11,7 +11,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 
 axios.interceptors.request.use(request => {
-  console.log('the request: ', request)
+  // console.log('the request: ', request)
   // edit, addHeaders, do stuff....
   return request
 }, error => {
@@ -20,7 +20,7 @@ axios.interceptors.request.use(request => {
 });
 
 axios.interceptors.response.use(response => {
-  console.log('the response: ', response)
+  // console.log('the response: ', response)
   return response
 }, error => {
   console.log('no response error: ', error);

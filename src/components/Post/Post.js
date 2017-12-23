@@ -4,7 +4,7 @@ import React from 'react';
 import './Post.css';
 
 const post = (props) => {
-  console.log('post props: ', props)
+  // console.log('post props: ', props)
   return (
     <article className="Post" onClick={props.clicked}>
         <h4>{props.id}: {props.title}</h4>
