@@ -10,6 +10,9 @@ class Posts extends Component {
     posts: []
   }
   componentDidMount() {
+
+console.log('props in componentDidMount: ', this.props)
+
     axios.get('/posts')
     .then(response => {
       // const posts = response.data.slice(0, 4)
