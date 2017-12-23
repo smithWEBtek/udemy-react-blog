@@ -47,6 +47,8 @@ console.log('props in componentDidMount: ', this.props)
           id={post.id}
           title={post.title}
           author={post.author}
+          // {...this.props}
+          // match={this.props.match}
           clicked={() => this.postSelectedHandler(post.id)} />
       });
     }
