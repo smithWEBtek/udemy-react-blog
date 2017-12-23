@@ -12,8 +12,10 @@ class Posts extends Component {
   componentDidMount() {
     axios.get('/posts')
     .then(response => {
-      const posts = response.data.slice(0, 4)
+      // const posts = response.data.slice(0, 4)
+      const posts = response.data.slice(response.data.length - 4, response.data.length)
       const updatedPosts = posts.map(post => {
+         
         return {
           ...post,
           author: 'Brad'
@@ -39,6 +41,7 @@ class Posts extends Component {
       posts = this.state.posts.map(post => {
         return <Post
           key={post.id}
+          id={post.id}
           title={post.title}
           author={post.author}
           clicked={() => this.postSelectedHandler(post.id)} />
